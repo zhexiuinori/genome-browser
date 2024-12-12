@@ -1,0 +1,88 @@
+.species-card .ant-card-head {
+    background-color: #e8f5e9;
+    border-bottom: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.species-card {
+    border: none;
+    margin-bottom: 1px;
+    width: 100%;
+}
+
+.species-card  {
+    transition: all 0.3s;
+    border: 1px solid #e8e8e8;
+    border-top: none;
+    width: 100%;
+}
+
+.species-card .ant-card-body.collapsed {
+    display: none;
+    border: none;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    border: 1px solid #c8e6c9;
+    width: 100%;
+}
+
+.arrow-icon {
+    transition: transform 0.3s;
+}
+
+.arrow-icon.collapsed {
+    transform: rotate(-90deg);
+}
+
+.species-card .ant-card-head-wrapper {
+    width: 100%;
+}
+
+.species-card .ant-card-head-title {
+    padding: 0;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+th {
+    background-color: #f5f5f5;
+    font-weight: 500;
+}
+
+tr:hover {
+    background-color: #fafafa;
+}
+
+h4 {
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.ant-input {
+    border-radius: 4px;
+}
+
+.ant-select {
+    width: 100%;
+}
+
+.ant-btn {
+    border-radius: 4px;
+}

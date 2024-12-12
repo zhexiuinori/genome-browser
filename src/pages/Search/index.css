@@ -1,0 +1,20 @@
+.SearchName .ant-collapse-header {
+    padding-right: 0px !important;
+}
+
+.SearchName .ant-collapse-expand-icon {
+    color: aliceblue;
+}
+div.col-1-item div.col-1-header{
+    border-left:10px solid #2b84a0 !important;
+    border-top: 2px solid #2b84a0;
+
+    border-radius:0 !important;
+}
+.col-1-content.col-1-content-active .col-1-content-box{
+    border:none;
+    background-color: white;
+}
+div.SelectOption{
+    /* padding-left: 20px; */
+}

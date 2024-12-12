@@ -1,0 +1,13 @@
+div.Genomers-card-head-wrapper {
+    border-bottom: 1px solid #2b84a0 !important;
+}
+div.Genomers-card-body{
+    border-top: 1px solid #2b84a0 !important;
+    margin-top: 2%;
+}
+div.Genomers-card-head-title{
+    padding-left: 5%;
+    font-size:  20px ;
+    font-style: italic;
+    color: #2b84a0;
+}
