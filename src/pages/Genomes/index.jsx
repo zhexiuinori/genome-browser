@@ -186,7 +186,8 @@ const App = () => {
                         style={{
                             padding: '10px',
                             border: '1px solid #2b84a0',
-                            borderRadius: '8px'
+                            borderRadius: '8px',
+                            fontStyle: 'italic',
                         }}
                     />
                     <Button onClick={ExpandOrCloseAllTree} style={{ marginTop: '20px' }}>Close/Expand all </Button>
