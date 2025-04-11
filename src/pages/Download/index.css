@@ -1,0 +1,104 @@
+.download-container {
+  padding: 24px 32px;
+  background-color: white;
+  min-height: 800px;
+}
+
+.download-header {
+  margin-bottom: 24px;
+}
+
+.download-header h2 {
+  color: #2b84a0;
+  font-weight: bold;
+  margin-bottom: 16px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.download-header h2:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #2b84a0;
+}
+
+.section-title {
+  color: #2b84a0;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.section-title .anticon {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.download-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 24px;
+}
+
+.download-card .ant-card-head {
+  background: linear-gradient(to right, #f0f8ff, #e6f7ff);
+  border-bottom: 2px solid #2b84a0;
+}
+
+.download-table {
+  margin-top: 8px;
+}
+
+.download-table .ant-table-thead > tr > th {
+  background-color: #f0f8ff;
+  color: #2b84a0;
+  font-weight: bold;
+}
+
+.download-table .ant-btn-primary {
+  background-color: #2b84a0;
+  border-color: #2b84a0;
+}
+
+.download-table .ant-btn-primary:hover {
+  background-color: #1e6f87;
+  border-color: #1e6f87;
+}
+
+.download-footer {
+  margin-top: 32px;
+}
+
+.download-note {
+  background-color: #f9f9f9;
+  border-left: 4px solid #2b84a0;
+}
+
+.download-note h4 {
+  color: #2b84a0;
+  margin-bottom: 16px;
+}
+
+.download-note p {
+  margin-bottom: 8px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .download-container {
+    padding: 16px;
+  }
+  
+  .download-header h2 {
+    font-size: 20px;
+  }
+  
+  .section-title {
+    font-size: 16px;
+  }
+} 

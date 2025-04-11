@@ -1,0 +1,93 @@
+.synteny-container {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.synteny-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.synteny-control-card {
+  margin-bottom: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  border-radius: 8px;
+}
+
+.synteny-visualization-card {
+  margin-bottom: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  border-radius: 8px;
+}
+
+.synteny-chart {
+  height: 600px;
+  width: 100%;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.control-item {
+  margin-bottom: 16px;
+}
+
+.control-item label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-top: 16px;
+}
+
+.synteny-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.synteny-table th {
+  padding: 12px 8px;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #fafafa;
+  text-align: left;
+}
+
+.synteny-table td {
+  padding: 12px 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.synteny-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.statistics-card {
+  margin-bottom: 24px;
+}
+
+.statistics-item {
+  text-align: center;
+  padding: 16px;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.statistics-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1890ff;
+  margin-bottom: 8px;
+}
+
+.statistics-label {
+  color: #666;
+}

@@ -143,10 +143,9 @@ export default function Home() {
           <h2 style={{...commonStyles.titleText, fontSize: '30px'}}>
             Quick Tools
           </h2>
-          <List
-            dataSource={quickTools}
-            renderItem={({title, content, link}) => (
-              <List.Item>
+          <Row gutter={[16, 16]}>
+            {quickTools.map(({title, content, link}) => (
+              <Col span={12} key={link}>
                 <Card title={title} className="tool-card" hoverable>
                   <div>
                     {content}
@@ -156,9 +155,9 @@ export default function Home() {
                     </Link>
                   </div>
                 </Card>
-              </List.Item>
-            )}
-          />
+              </Col>
+            ))}
+          </Row>
 
           <div style={{ marginTop: '30px' }}>
             <h2 style={{...commonStyles.titleText, fontSize: '24px'}}>
@@ -166,9 +165,9 @@ export default function Home() {
             </h2>
             <Card>
               <ul style={{ paddingLeft: '20px' }}>
-                <li>物种数量: 10+</li>
-                <li>基因组数据: 15+</li>
-                <li>SSR标记: 50,000+</li>
+                <li>物种数量: </li>
+                <li>基因组数据: </li>
+                <li>SSR标记: </li>
                 <li>分析工具: 4</li>
               </ul>
             </Card>

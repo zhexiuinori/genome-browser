@@ -9,6 +9,7 @@ import Species from './pages/Genomes/Species';
 import { Layout, Menu, Row, Col, Breadcrumb, Divider, theme as antTheme } from 'antd';
 import { Route, Switch, Redirect, NavLink, useHistory, Link, useLocation } from 'react-router-dom';
 import Tools from './pages/Tools';
+import Network from './pages/Network';
 
 const { Header, Content, Footer } = Layout;
 
@@ -49,6 +50,10 @@ function App() {
         {
           label: 'Synteny Viewer',
           key: '/tools/synteny'
+        },
+        {
+          label: 'DE Gene Analysis',
+          key: '/tools/de'
         }
       ],
       onTitleClick: () => {
@@ -62,6 +67,10 @@ function App() {
     {
       label: 'Test',
       key: '/Test',
+    },
+    {
+      label: 'Network',
+      key: '/Network',
     },
   ];
 
@@ -122,7 +131,8 @@ function App() {
             'blash': 'BLASH 序列比对工具',
             'jbrowse': 'JBrowse 基因组浏览器',
             'ssrfinder': 'SSR Finder 查找工具',
-            'synteny': 'Synteny Viewer 工具'
+            'synteny': 'Synteny Viewer 工具',
+            'de': 'DE Gene Analysis 差异表达基因分析工具'
           };
           
           const toolKey = pathSnippets[1].toLowerCase();
@@ -171,6 +181,12 @@ function App() {
     }))
   );
 
+  const DEGeneAnalysis = React.lazy(() => 
+    import('./pages/Tools/DE').then(module => ({
+      default: module.default || module
+    }))
+  );
+
   return (
     <div>
       <Layout className="layout" style={{ minHeight: '100vh' }}>
@@ -184,7 +200,7 @@ function App() {
                 </span>
               </NavLink>
             </Col>
-            <Col span={8} offset={3}>
+            <Col span={16}>
               <Menu
                 mode="horizontal"
                 defaultSelectedKeys={['/Home']}
@@ -210,12 +226,14 @@ function App() {
                 <Route path='/Genomes' component={Genomes} />
                 <Route path='/species/:name' component={Species} />
                 <Route path='/Test' component={Test} />
+                <Route path='/Network' component={Network} />
                 <Route path='/Download' component={Download} />
                 <Route exact path="/tools" component={Tools} />
                 <Route path="/tools/blash" component={Blash} />
                 <Route path="/tools/jbrowse" component={JBrowse} />
                 <Route path="/tools/ssrfinder" component={SSRFinder} />
                 <Route path="/tools/synteny" component={SyntenyViewer} />
+                <Route path="/tools/de" component={DEGeneAnalysis} />
                 <Redirect to='/Home' />
               </Switch>
             </React.Suspense>

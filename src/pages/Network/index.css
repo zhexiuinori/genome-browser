@@ -1,0 +1,103 @@
+.network-container {
+  padding: 24px 32px;
+  background-color: white;
+  min-height: 800px;
+}
+
+.network-header {
+  margin-bottom: 24px;
+}
+
+.network-header h2 {
+  color: #2b84a0;
+  font-weight: bold;
+  margin-bottom: 16px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.network-header h2:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #2b84a0;
+}
+
+.network-control-card {
+  margin-bottom: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.network-control-card .ant-card-head {
+  background: linear-gradient(to right, #f0f8ff, #e6f7ff);
+  border-bottom: 2px solid #2b84a0;
+}
+
+.control-item {
+  margin-bottom: 16px;
+}
+
+.control-item label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #2b84a0;
+}
+
+.network-visualization-card {
+  margin-bottom: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  min-height: 600px;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+
+.network-chart {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.network-info-card {
+  background-color: #f9f9f9;
+  border-left: 4px solid #2b84a0;
+}
+
+.network-info-card h4 {
+  color: #2b84a0;
+  margin-bottom: 16px;
+}
+
+.network-info-card p {
+  margin-bottom: 8px;
+}
+
+.ant-btn-primary {
+  background-color: #2b84a0;
+  border-color: #2b84a0;
+}
+
+.ant-btn-primary:hover {
+  background-color: #1e6f87;
+  border-color: #1e6f87;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .network-container {
+    padding: 16px;
+  }
+  
+  .network-header h2 {
+    font-size: 20px;
+  }
+} 

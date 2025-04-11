@@ -28,6 +28,12 @@ const toolsList = [
     description: '基因组共线性分析与可视化工具',
     icon: '📈',
     path: '/tools/synteny'
+  },
+  {
+    title: 'DE Gene Analysis',
+    description: '差异表达基因分析与可视化工具',
+    icon: '📊',
+    path: '/tools/de'
   }
 ];
 
