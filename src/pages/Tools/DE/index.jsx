@@ -281,32 +281,50 @@ const DEGeneAnalysis = () => {
   const [analyzing, setAnalyzing] = useState(false);
   const [results, setResults] = useState(null);
   const [activeTab, setActiveTab] = useState('1');
+  const [form] = Form.useForm();
   
   // 文件上传配置
   const uploadProps = {
     name: 'file',
     multiple: false,
-    action: '/api/upload/expression',
     accept: '.csv,.txt,.xlsx,.tsv',
     fileList,
+    beforeUpload(file) {
+      // 读取文件内容
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const fileContent = e.target.result;
+        // 用 fetch 把文件内容传给后端
+        fetch('/api/de/analysis', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fileContent,
+            algorithm: form.getFieldValue('algorithm'),
+            pValueCutoff: form.getFieldValue('pValueCutoff'),
+            logFCCutoff: form.getFieldValue('logFCCutoff'),
+            groupInfo: form.getFieldValue('groupInfo'),
+            normalization: form.getFieldValue('normalization')
+          })
+        })
+        .then(res => res.json())
+        .then(result => {
+          setResults(result);
+          message.success('分析完成');
+        })
+        .catch(err => {
+          message.error('分析失败');
+          console.error(err);
+        });
+      };
+      reader.readAsText(file);
+      // 阻止自动上传
+      return false;
+    },
     onChange(info) {
-      const { status } = info.file;
-      let fileList = [...info.fileList];
-      
-      // 限制只能上传一个文件
-      fileList = fileList.slice(-1);
-      
-      if (status === 'done') {
-        message.success(`${info.file.name} 上传成功`);
-      } else if (status === 'error') {
-        message.error(`${info.file.name} 上传失败`);
-      }
-      
+      let fileList = [...info.fileList].slice(-1);
       setFileList(fileList);
-    },
-    onDrop(e) {
-      console.log('Dropped files', e.dataTransfer.files);
-    },
+    }
   };
   
   // 提交分析请求
@@ -385,6 +403,7 @@ const DEGeneAnalysis = () => {
           
           <Card title="分析参数设置" style={{ marginBottom: 16 }}>
             <Form
+              form={form}
               name="degAnalysisForm"
               layout="vertical"
               onFinish={handleSubmit}
