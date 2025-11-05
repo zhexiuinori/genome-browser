@@ -10,6 +10,7 @@ import { Layout, Menu, Row, Col, Breadcrumb, Divider, theme as antTheme } from '
 import { Route, Switch, Redirect, NavLink, useHistory, Link, useLocation } from 'react-router-dom';
 import Tools from './pages/Tools';
 import Network from './pages/Network';
+import AIChatToggle from './components/AIChatToggle';
 
 const { Header, Content, Footer } = Layout;
 
@@ -250,6 +251,8 @@ function App() {
           <a href="#">Link</a>
         </Footer>
       </Layout>
+      
+      <AIChatToggle />
     </div>
   );
 }

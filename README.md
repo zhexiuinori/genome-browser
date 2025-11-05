@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+# 构属植物基因组数据库（GPGDB）
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+构属植物基因组数据库是一个基于 React 的单页应用，用于浏览、检索和分析植物基因组相关数据。项目集成了大量工具，如 BLAST 序列比对、SSR Finder、差异表达基因分析、JBrowse 基因组浏览器等。
 
-## Available Scripts
+> **新增功能**：AI 智能助手现已上线，支持通过自然语言引导用户快速跳转到对应的工具页面。
 
-In the project directory, you can run:
+## 功能亮点
 
-### `npm start`
+- 🧭 基于 HashRouter 的多页面导航
+- 📊 多种可视化图表（ECharts）和基因组浏览器（JBrowse）
+- 🔍 基因组、物种、差异表达等多维度数据检索
+- 🤖 **AI 智能助手**：理解用户意图并提供一键导航操作
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 快速开始
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 环境要求
 
-### `npm test`
+- Node.js 18+
+- npm 8+
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 安装依赖
 
-### `npm run build`
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 启动（推荐）
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+使用一键启动脚本同时启动前后端服务：
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+./start-dev.sh
+```
 
-### `npm run eject`
+脚本会：
+1. 检查/安装后端依赖
+2. 后台启动后端服务（默认端口 3001）
+3. 前台启动前端开发服务器（默认端口 3000）
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+> 停止服务时按 `Ctrl + C`，脚本会自动终止后端进程。
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 手动启动
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### 后端
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+cd backend
+npm install
+npm start
+```
 
-## Learn More
+#### 前端
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+启动后访问 [http://localhost:3000](http://localhost:3000)。
 
-### Code Splitting
+## AI 引导功能
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- 入口在页面右下角，点击浮动机器人按钮即可唤起对话框
+- 支持关键词：BLAST、JBrowse、SSR、差异表达、搜索物种、下载资源、基因组概览等
+- 对话会在失败时提供备选指引
 
-### Analyzing the Bundle Size
+详细说明请参阅 [AI_GUIDANCE_USAGE.md](./AI_GUIDANCE_USAGE.md)。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 后端服务
 
-### Making a Progressive Web App
+AI 功能的后端基于 Express 构建，默认开启跨域与 JSON 解析。支持两种模式：
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. **OpenAI 模式**：配置 `OPENAI_API_KEY` 后使用 GPT-4o-mini 生成响应
+2. **规则回退模式**：未配置 API Key 时启用关键词匹配逻辑
 
-### Advanced Configuration
+更多信息请参考 [backend/README.md](./backend/README.md)。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 项目结构
 
-### Deployment
+```
+├── backend/                # AI 引导功能后端
+│   ├── routes/             # Express 路由
+│   ├── server.js           # 后端入口
+│   ├── package.json        # 后端依赖
+│   └── .env.example        # 环境变量模板
+├── src/
+│   ├── components/         # 公共组件
+│   │   ├── AIChatInterface # AI 对话框
+│   │   └── AIChatToggle    # 浮动按钮
+│   ├── pages/              # 各业务页面
+│   ├── App.jsx             # 应用入口布局
+│   └── index.js            # 渲染入口（HashRouter）
+├── AI_GUIDANCE_USAGE.md    # AI 功能使用说明
+├── AI_GUIDANCE_IMPLEMENTATION.md
+├── start-dev.sh            # 前后端一键启动脚本
+└── README.md               # 当前说明文件
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 常用 npm 脚本
 
-### `npm run build` fails to minify
+| 命令 | 说明 |
+| ---- | ---- |
+| `npm start` | 启动前端开发服务器 |
+| `npm run build` | 构建生产环境静态文件 |
+| `npm test` | 运行测试（暂未配置） |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 贡献指南
+
+1. 基于 `feat-ai-guidance-impl` 分支开发
+2. 保持代码风格与项目一致（Ant Design + React Hooks）
+3. 前端新增组件放置于 `src/components`
+4. 后端新增接口放置于 `backend/routes`
+
+---
+
+如在使用过程中遇到问题或有改进建议，欢迎提交 Issue 或 Pull Request！
