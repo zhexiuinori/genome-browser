@@ -6,6 +6,8 @@ import './index.css';
 
 const { TextArea } = Input;
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || '';
+
 const initialMessages = [
   {
     id: 'welcome',
@@ -78,7 +80,7 @@ function AIChatInterface({ onClose }) {
       setInputValue('');
       setError(null);
 
-      const response = await fetch('/api/ai-query', {
+      const response = await fetch(`${API_BASE_URL}/api/ai-query`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
